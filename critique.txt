@@ -1,3 +1,22 @@
 AI Method Critique
 
 Tool used: ChatGPT
+
+I copied and pasted my class definition into ChatGPT and asked this prompt:
+"create an additional method for this class in php that makes sense in context"
+
+It gave me this code:
+
+public function addBook($pages){
+    if($pages > 0){
+        $this->numBooks++;
+        $this->numTotalPages += $pages;
+        return "Book added successfully!";
+    } else {
+        return "Page count must be greater than 0.";
+    }
+}
+
+This is a function that makes sense in this context, as it contribues to the aims of the class which is as a 
+book reading tracker. If the user inputs something malicious, however, this function does not have any safeguards around it, and therefore
+some safeguards would have to be added elsewhere in the code, perhaps on display. I did not end up making any changes to this method.

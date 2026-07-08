@@ -58,6 +58,18 @@ class BookReader{
         //is checked.
     }
 
+    //function from chatGPT:
+    public function addBook($pages){
+    if($pages > 0){
+        $this->numBooks++;
+        $this->numTotalPages += $pages;
+        return "Book added successfully!";
+    } else {
+        return "Page count must be greater than 0.";
+    }
+}
+
+
 }
 
 $bookReader1 = new BookReader(5, 1500, "Science Fiction", 5, "Luke", "Bisgard");
@@ -66,14 +78,19 @@ $bookReader2 = new BookReader(3, 900, "Fantasy", 4, "Ryland", "Grace");
 echo $bookReader1->getReaderInfo();
 echo "<br>Average Pages per Book: " . $bookReader1->AvgPagesPerBook() . "<br>";
 echo $bookReader1->readingGoalMet();
-$bookReader1->changePreferredGenre("Mystery");
+$bookReader1->changePreferredGenre("Nonfiction");
+echo "<br><br>";
+echo $bookReader1->addBook(300);
 echo "<br><br>";
 echo $bookReader1->getReaderInfo();
+echo "<br><br>";
 
 echo $bookReader2->getReaderInfo();
 echo "<br>Average Pages per Book: " . $bookReader2->AvgPagesPerBook() . "<br>";
 echo $bookReader2->readingGoalMet();
 $bookReader2->changePreferredGenre("Science Fiction");
+echo "<br><br>";
+echo $bookReader2->addBook(548);
 echo "<br><br>";
 echo $bookReader2->getReaderInfo();
 
