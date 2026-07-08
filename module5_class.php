@@ -24,7 +24,7 @@ class BookReader{
         $this->readingGoal = $readingGoal;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-    }
+    }//this should create a new instance of the class with the properties set by the parameters
 
     public function getReaderInfo(){ //Summary display method
         return "Reader: " . $this->firstName . " " . $this->lastName . "<br>" .
@@ -32,7 +32,7 @@ class BookReader{
                "Preferred Genre: " . $this->preferredGenre . "<br>" .
                "Number of Books Read: " . $this->numBooks . "<br>" .
                "Total Pages Read: " . $this->numTotalPages;
-    }
+    }//this should output the summary of the class properties in a readable format.
 
     public function AvgPagesPerBook(){ //Method returning calculated value
         if($this->numBooks > 0){
@@ -40,6 +40,7 @@ class BookReader{
         } else {
             return 0;
         }
+        //This should return a calculated value for the number of pages in each book
     }
 
     public function readingGoalMet(){ //method with decision logic
@@ -48,17 +49,33 @@ class BookReader{
         } else {
             return "Keep going! You haven't met your reading goal yet.";
         }
+        //this should output the first string if the goal is met, and the second if not.
     }
 
     public function changePreferredGenre($newGenre){ //Method to change a property value
         $this->preferredGenre = $newGenre;
+        //prediction: this should output nothing from this method, but the property would be changed when the summary
+        //is checked.
     }
 
 }
 
 $bookReader1 = new BookReader(5, 1500, "Science Fiction", 5, "Luke", "Bisgard");
+$bookReader2 = new BookReader(3, 900, "Fantasy", 4, "Ryland", "Grace");
 
+echo $bookReader1->getReaderInfo();
+echo "<br>Average Pages per Book: " . $bookReader1->AvgPagesPerBook() . "<br>";
+echo $bookReader1->readingGoalMet();
+$bookReader1->changePreferredGenre("Mystery");
+echo "<br><br>";
+echo $bookReader1->getReaderInfo();
 
+echo $bookReader2->getReaderInfo();
+echo "<br>Average Pages per Book: " . $bookReader2->AvgPagesPerBook() . "<br>";
+echo $bookReader2->readingGoalMet();
+$bookReader2->changePreferredGenre("Science Fiction");
+echo "<br><br>";
+echo $bookReader2->getReaderInfo();
 
 //GITHUB LINK: https://github.com/lbizness/cs85-module5b-oopworld
 ?>
